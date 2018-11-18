@@ -10,57 +10,57 @@
 
 using namespace std;
 
-void input();
-void output();
-void sorted();
-double sum(double* pArr);
+void input(double *pArr, int a);
+void output(double *pArr, int a);
+void sorted(double *pArr, int a);
+double sum(double* pArr, int a);
 
 int main() {
 	const int N = 15;
 	double Y[N];
 	double *p = Y;
-	input();
-	output();
-	sorted();
-	output();
+	input(p, N);
+	output(p, N);
+	sorted(p, N);
+	output(p, N);
 	cout << endl;
-	cout << "Sum: " << sum(p) << endl;
-	
+	cout << "Sum: " << sum(p, N) << endl;
+
 	return 0;
 }
 
-void input() {
+void input(double *pArr, int a) {
 	srand(time(NULL));
-	for (int i = 0; i < N; i++) {
-		Y[i] = rand() % 19 -9;
+	for (int i = 0; i < a; i++) {
+		pArr[i] = rand() % 19 - 9;
 	}
 }
 
-void output() {
+void output(double *pArr, int a) {
 	cout << "Y: ";
-	for (int i(0); i < N; i++) {
-		cout << Y[i] << " ";
+	for (int i(0); i < a; i++) {
+		cout << pArr[i] << " ";
 	}
 	cout << endl;
 }
 
-void sorted() {
+void sorted(double *pArr, int a) {
 	double t;
-	for (int i(0); i < N; i++) {
-		for(int j(0); j < N-1-i; j++)
-			if (Y[j] < Y[j+1]) {
-				t = Y[j];
-				Y[j] = Y[j+1];
-				Y[j+1] = t;
+	for (int i(0); i < a; i++) {
+		for (int j(0); j < a - 1 - i; j++)
+			if (pArr[j] < pArr[j + 1]) {
+				t = pArr[j];
+				pArr[j] = pArr[j + 1];
+				pArr[j + 1] = t;
 			}
 	}
 }
 
-double sum(double *pArr) {
+double sum(double *pArr, int a) {
 	double s = 0.0;
-	for (int i(0); i < N; i++) {
+	for (int i(0); i < a; i++) {
 		if (i % 2 == 1) {
-			s += Y[i];
+			s += pArr[i];
 		}
 	}
 	return s;
