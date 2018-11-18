@@ -10,21 +10,19 @@
 
 using namespace std;
 
-const int N = 15;
-double Y[N];
-double *p = Y;
-
 void input();
 void output();
 void sorted();
-void outputSorted();
 double sum(double* pArr);
 
 int main() {
+	const int N = 15;
+	double Y[N];
+	double *p = Y;
 	input();
 	output();
 	sorted();
-	outputSorted();
+	output();
 	cout << endl;
 	cout << "Sum: " << sum(p) << endl;
 	
@@ -55,13 +53,6 @@ void sorted() {
 				Y[j] = Y[j+1];
 				Y[j+1] = t;
 			}
-	}
-}
-
-void outputSorted() {
-	cout << "Sorted Y: ";
-	for (int i(0); i < N; i++) {
-		cout << Y[i] << " ";
 	}
 }
 
